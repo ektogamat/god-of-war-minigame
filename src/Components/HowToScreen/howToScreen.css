@@ -1,0 +1,163 @@
+.howto-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: default;
+  background:
+    linear-gradient(90deg, rgba(7, 2, 2, 0.82), rgba(7, 2, 2, 0.2) 50%, rgba(7, 2, 2, 0.82)),
+    radial-gradient(ellipse at center, rgba(24, 7, 2, 0.12) 0%, rgba(4, 1, 1, 0.88) 86%);
+  pointer-events: none;
+}
+
+.howto-screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 55%, transparent 0 22%, rgba(0, 0, 0, 0.5) 78%);
+  pointer-events: none;
+}
+
+.howto-panel {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: min(760px, calc(100vw - 48px));
+  padding: clamp(28px, 5vh, 52px) clamp(24px, 5vw, 60px);
+  isolation: isolate;
+  pointer-events: none;
+}
+
+.howto-panel::before,
+.howto-panel::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: min(560px, 82%);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(220, 183, 131, 0.7), transparent);
+  box-shadow: 0 0 12px rgba(255, 117, 38, 0.3);
+}
+
+.howto-panel::before {
+  top: 0;
+}
+
+.howto-panel::after {
+  bottom: 0;
+}
+
+.howto-eyebrow {
+  margin: 0 0 10px;
+  color: #d8b88b;
+  font-family: 'Antic Slab', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.34em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-shadow: 0 0 16px rgba(255, 111, 34, 0.6);
+}
+
+.howto-title {
+  font-family: 'GodOfWar', sans-serif;
+  font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  margin: 0 0 clamp(24px, 3.5vh, 34px);
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.65);
+}
+
+.howto-steps {
+  counter-reset: forge-step;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 clamp(28px, 4vh, 40px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 34px;
+  text-align: left;
+  width: 100%;
+}
+
+.howto-steps li {
+  counter-increment: forge-step;
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  font-family: 'Antic Slab', serif;
+  font-size: clamp(1.15rem, 2vw, 1.32rem);
+  padding-left: 60px;
+  position: relative;
+  color: rgba(255, 248, 235, 0.88);
+  line-height: 1.4;
+}
+
+.howto-steps li::before {
+  content: counter(forge-step, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  transform: translateY(-50%);
+  border: 1px solid rgba(216, 184, 139, 0.42);
+  border-radius: 50%;
+  color: #d8b88b;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  background: rgba(22, 8, 4, 0.45);
+  box-shadow: inset 0 0 12px rgba(255, 112, 36, 0.1);
+}
+
+.howto-panel .howto-cta {
+  min-width: 240px;
+  height: 54px;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 28px 12px 18px;
+  border-color: rgba(255, 255, 255, 0.8);
+  color: #241611;
+  background: rgba(239, 232, 221, 0.92);
+  font-family: 'GodOfWar', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  pointer-events: all;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.35), 0 0 20px rgba(255, 121, 45, 0.08);
+}
+
+.howto-panel .howto-cta:hover {
+  border-color: #d8b88b;
+  color: #fff8eb;
+  background: rgba(35, 15, 8, 0.9);
+  box-shadow: 0 0 24px rgba(255, 111, 34, 0.18);
+}
+
+@media (max-width: 720px) {
+  .howto-steps {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .howto-steps li {
+    min-height: 52px;
+    padding-left: 58px;
+    font-size: 1.15rem;
+  }
+
+  .howto-steps li::before {
+    width: 40px;
+    height: 40px;
+    font-size: 0.86rem;
+  }
+}

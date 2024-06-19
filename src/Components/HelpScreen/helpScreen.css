@@ -1,0 +1,383 @@
+.help-screen {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 200;
+  pointer-events: all;
+  cursor: default;
+}
+
+.help-toggle {
+  font-family: 'Antic Slab', serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  height: 36px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  color: #fff;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  gap: 10px;
+}
+
+.help-toggle:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+}
+
+.help-toggle-icon {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(216, 184, 139, 0.65);
+  border-radius: 50%;
+  color: #d8b88b;
+  font-size: 12px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.weapon-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.weapon-dots--sm {
+  gap: 4px;
+}
+
+.weapon-dots--lg {
+  gap: 8px;
+}
+
+.weapon-dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(216, 184, 139, 0.85);
+  background: transparent;
+  box-shadow: none;
+  transition: background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.weapon-dots--lg .weapon-dot {
+  width: 14px;
+  height: 14px;
+}
+
+.weapon-dot--filled {
+  border-color: #f0c878;
+  background: radial-gradient(circle at 35% 30%, #ffe7a8, #e0a84a 70%);
+  box-shadow: 0 0 10px rgba(255, 180, 60, 0.65);
+}
+
+.help-progress {
+  margin-bottom: 28px;
+  padding: 22px 24px;
+  border: 1px solid rgba(216, 184, 139, 0.28);
+  background: rgba(255, 111, 34, 0.05);
+}
+
+.help-progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.help-progress-header .help-challenge-eyebrow {
+  margin: 0;
+}
+
+.help-progress-summary {
+  margin: 0 0 20px;
+  font-family: 'Antic Slab', serif;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: rgba(255, 248, 235, 0.82);
+}
+
+.help-weapon-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.help-weapon-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  opacity: 0.55;
+}
+
+.help-weapon-item--forged {
+  opacity: 1;
+}
+
+.help-weapon-item .weapon-dot {
+  margin-top: 4px;
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.help-weapon-name {
+  margin: 0;
+  font-family: 'Antic Slab', serif;
+  font-size: 1.08rem;
+  color: rgba(255, 248, 235, 0.95);
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.help-weapon-status {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(216, 184, 139, 0.7);
+}
+
+.help-weapon-item--forged .help-weapon-status {
+  color: #f0c878;
+}
+
+.help-weapon-detail {
+  margin: 4px 0 0;
+  font-family: 'Antic Slab', serif;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: rgba(255, 248, 235, 0.62);
+}
+
+.help-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  padding: 0;
+  background: rgba(4, 1, 1, 0.72);
+  backdrop-filter: blur(6px);
+  cursor: default;
+}
+
+.help-panel {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  max-height: none;
+  overflow-y: auto;
+  padding:
+    clamp(40px, 7vh, 72px)
+    max(32px, calc((100vw - 1080px) / 2))
+    clamp(36px, 6vh, 64px);
+  border: 0;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(92, 31, 13, 0.22), transparent 42%),
+    linear-gradient(180deg, rgba(24, 9, 6, 0.98), rgba(7, 2, 2, 0.99));
+  box-shadow: none;
+  color: #fff8eb;
+}
+
+.help-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: clamp(28px, 5vh, 48px);
+  padding-right: 72px;
+}
+
+.help-title {
+  margin: 0;
+  font-family: 'GodOfWar', sans-serif;
+  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.55);
+}
+
+.help-close {
+  position: fixed;
+  top: max(24px, env(safe-area-inset-top));
+  right: max(28px, env(safe-area-inset-right));
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff8eb;
+  font-family: 'Inter', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.help-close:hover {
+  border-color: #d8b88b;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.help-rules {
+  counter-reset: help-step;
+  list-style: none;
+  margin: 0 0 32px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 40px;
+}
+
+.help-rules li {
+  counter-increment: help-step;
+  position: relative;
+  min-height: 48px;
+  padding-left: 58px;
+  font-family: 'Antic Slab', serif;
+  font-size: clamp(1.08rem, 1.8vw, 1.3rem);
+  line-height: 1.45;
+  color: rgba(255, 248, 235, 0.84);
+}
+
+.help-rules li::before {
+  content: counter(help-step, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(216, 184, 139, 0.42);
+  border-radius: 50%;
+  color: #d8b88b;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  background: rgba(22, 8, 4, 0.45);
+}
+
+.help-challenge {
+  margin-bottom: 28px;
+  padding: 22px 24px;
+  border: 1px solid rgba(216, 184, 139, 0.28);
+  background: rgba(255, 111, 34, 0.06);
+  box-shadow: inset 0 0 24px rgba(255, 112, 36, 0.06);
+}
+
+.help-challenge-eyebrow {
+  margin: 0 0 8px;
+  color: #d8b88b;
+  font-family: 'Antic Slab', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.help-challenge-text {
+  margin: 0;
+  font-family: 'Antic Slab', serif;
+  font-size: 1.08rem;
+  line-height: 1.55;
+  color: rgba(255, 248, 235, 0.9);
+}
+
+.help-disclaimer {
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(216, 184, 139, 0.2);
+  font-family: 'Antic Slab', serif;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: rgba(255, 248, 235, 0.48);
+  text-align: left;
+}
+
+@media (max-width: 640px) {
+  .help-screen {
+    top: 12px;
+    left: 12px;
+  }
+
+  .help-toggle-label {
+    display: none;
+  }
+
+  .help-toggle {
+    width: auto;
+    min-width: 36px;
+    padding: 0 10px;
+    justify-content: center;
+  }
+
+  .help-panel {
+    padding:
+      max(28px, env(safe-area-inset-top))
+      20px
+      max(28px, env(safe-area-inset-bottom));
+  }
+
+  .help-panel-header {
+    padding-right: 54px;
+    margin-bottom: 28px;
+  }
+
+  .help-title {
+    font-size: clamp(2rem, 11vw, 3rem);
+  }
+
+  .help-close {
+    top: max(14px, env(safe-area-inset-top));
+    right: max(14px, env(safe-area-inset-right));
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    font-size: 26px;
+  }
+
+  .help-rules {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .help-rules li {
+    font-size: 1.02rem;
+  }
+
+  .help-progress-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .help-weapon-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .help-progress,
+  .help-challenge {
+    padding: 18px;
+  }
+}

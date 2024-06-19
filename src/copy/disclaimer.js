@@ -1,0 +1,2 @@
+export const DISCLAIMER =
+  'Unofficial fan project for portfolio and educational purposes only. Not affiliated with, endorsed by, or sponsored by Sony Interactive Entertainment, Santa Monica Studio, or their affiliates. God of War, Leviathan, and all related names, logos, characters, sounds, music, and assets are trademarks and copyrights of their respective owners. No commercial use is intended. All third-party materials remain the property of their respective owners.'

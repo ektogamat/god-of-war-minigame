@@ -1,0 +1,37 @@
+.key-prompt {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 45%, #1a100c 0 42%, transparent 43%),
+    radial-gradient(circle at 50% 50%, #ff9a3c 0%, #c45a12 55%, #6a2a08 100%);
+  box-shadow:
+    0 0 10px rgba(255, 120, 40, 0.55),
+    0 0 18px rgba(255, 90, 20, 0.28),
+    inset 0 0 0 1.5px rgba(255, 186, 110, 0.55);
+}
+
+.key-prompt::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 40%, #2a1a14 0%, #0d0806 100%);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.85);
+}
+
+.key-prompt-glyph {
+  position: relative;
+  z-index: 1;
+  color: #f5f2ee;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.65);
+}

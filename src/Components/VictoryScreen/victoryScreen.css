@@ -1,0 +1,216 @@
+.victory-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 48px;
+  cursor: default;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.15) 35%,
+    transparent 60%
+  );
+}
+
+.victory-screen--final {
+  align-items: center;
+  justify-content: center;
+  padding:
+    max(20px, env(safe-area-inset-top))
+    max(16px, env(safe-area-inset-right))
+    max(28px, env(safe-area-inset-bottom))
+    max(16px, env(safe-area-inset-left));
+  background:
+    radial-gradient(
+      ellipse at 50% 42%,
+      rgba(40, 8, 4, 0.55) 0%,
+      rgba(0, 0, 0, 0.35) 45%,
+      transparent 72%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.45) 0%,
+      rgba(0, 0, 0, 0.2) 40%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
+}
+
+.victory-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 560px;
+  width: min(92vw, 560px);
+  padding: 24px 28px;
+  gap: 16px;
+  pointer-events: none;
+}
+
+.victory-panel--final {
+  justify-content: center;
+  max-width: min(92vw, 720px);
+  width: 100%;
+  gap: clamp(10px, 2.8vh, 22px);
+  padding: clamp(16px, 4vw, 32px) clamp(12px, 4vw, 28px);
+}
+
+.victory-eyebrow {
+  font-family: 'GodOfWar', sans-serif;
+  font-size: clamp(0.75rem, 3.2vw, 1rem);
+  font-weight: 300;
+  letter-spacing: 0.42em;
+  text-indent: 0.42em;
+  margin: 0;
+  opacity: 0.72;
+  text-transform: uppercase;
+  text-shadow: 0 0 18px rgba(255, 120, 60, 0.45);
+}
+
+.victory-title {
+  font-family: 'GodOfWar', sans-serif;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 0.85;
+  margin: 0;
+  text-shadow: 0 0 40px rgba(255, 60, 0, 0.8);
+}
+
+.victory-title--final {
+  width: 100%;
+  font-size: clamp(2.6rem, 12vw, 5.75rem);
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+  text-shadow:
+    0 0 48px rgba(255, 80, 20, 0.95),
+    0 0 96px rgba(255, 40, 0, 0.35);
+}
+
+.victory-tagline {
+  font-family: 'Antic Slab', serif;
+  font-size: 1.1rem;
+  opacity: 0.85;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.victory-tagline--final {
+  max-width: 38ch;
+  font-size: clamp(0.92rem, 3.6vw, 1.15rem);
+  line-height: 1.45;
+  opacity: 0.82;
+}
+
+.victory-source-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+  padding: 10px 20px;
+  border: 1px solid rgba(216, 184, 139, 0.55);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  color: #d8b88b;
+  font-family: 'Antic Slab', serif;
+  font-size: clamp(0.85rem, 2.4vw, 1rem);
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  pointer-events: all;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.victory-source-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(240, 200, 120, 0.9);
+  color: #fff8eb;
+}
+
+.victory-panel button {
+  margin-top: 12px;
+  font-family: 'GodOfWar', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.02em;
+  padding: 12px 28px 12px 18px;
+  gap: 12px;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.victory-button--final {
+  margin-top: clamp(8px, 2vh, 18px);
+  height: auto;
+  min-height: 44px;
+  font-size: clamp(1.05rem, 4.2vw, 1.35rem);
+  padding: clamp(10px, 2.5vw, 14px) clamp(22px, 6vw, 32px)
+    clamp(10px, 2.5vw, 14px) clamp(14px, 4vw, 20px);
+}
+
+@media (max-width: 480px) {
+  .victory-screen {
+    padding-bottom: max(32px, env(safe-area-inset-bottom));
+  }
+
+  .victory-screen--final {
+    padding-top: max(12px, env(safe-area-inset-top));
+  }
+
+  .victory-panel {
+    width: min(94vw, 560px);
+    padding: 20px 16px;
+    gap: 14px;
+  }
+
+  .victory-panel--final {
+    gap: clamp(8px, 2.2vh, 16px);
+  }
+
+  .victory-eyebrow {
+    letter-spacing: 0.28em;
+    text-indent: 0.28em;
+    font-size: clamp(0.68rem, 3vw, 0.85rem);
+  }
+
+  .victory-title--final {
+    font-size: clamp(2rem, 11.5vw, 3.4rem);
+    line-height: 0.92;
+  }
+
+  .victory-tagline--final {
+    font-size: clamp(0.85rem, 3.8vw, 1rem);
+    max-width: 32ch;
+  }
+
+  .victory-button--final {
+    width: min(100%, 280px);
+    justify-content: center;
+  }
+}
+
+@media (max-height: 640px) {
+  .victory-panel--final {
+    gap: 8px;
+  }
+
+  .victory-title--final {
+    font-size: clamp(1.85rem, 10vw, 2.8rem);
+  }
+
+  .victory-tagline--final {
+    font-size: 0.85rem;
+    line-height: 1.35;
+  }
+
+  .victory-button--final {
+    margin-top: 6px;
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "god-of-war-minigame",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "deploy": "vercel --prod"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "4.2",
+    "vite": "^5.2.11"
+  },
+  "dependencies": {
+    "@gsap/react": "^2.1.1",
+    "@hmng8/use-shader-fx": "^1.0.50",
+    "@react-three/drei": "^9.105.6",
+    "@react-three/fiber": "^8.16.6",
+    "@react-three/postprocessing": "^2.16.2",
+    "framer-motion": "^11.11.10",
+    "gsap": "^3.12.5",
+    "leva": "^0.9.35",
+    "maath": "^0.10.7",
+    "postprocessing": "^6.35.4",
+    "react": "18.3",
+    "react-dom": "18.3",
+    "three": "^0.164.1",
+    "three-stdlib": "^2.30.0",
+    "valtio": "^1.13.2",
+    "vercel": "^58.4.4"
+  }
+}
