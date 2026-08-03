@@ -37,6 +37,10 @@ const CONTINUE_FORGING_SFX_SRC =
   '/phatphrogstudio-oni-demon-voice-demonic-laughter-477923.mp3'
 const FINAL_VICTORY_SFX_SRC =
   '/freesound_community-possessed-laugh-laugh-stereo-95060.mp3'
+const ROUND_RESTART_VOICES = [
+  '/phatphrogstudio-demon-voice-i-donx27t-forgive-520949.mp3',
+  '/phatphrogstudio-demon-voice-no-mercy-477827.mp3',
+]
 const MIN_CHARGE_HOLD_MS = 350
 const HOLD_HINT_MESSAGE =
   'Press and hold — do not release to charge the forge energy'
@@ -57,6 +61,7 @@ const ALL_SFX = [
   ORB_COLLECT_SFX_SRC,
   CONTINUE_FORGING_SFX_SRC,
   FINAL_VICTORY_SFX_SRC,
+  ...ROUND_RESTART_VOICES,
 ]
 
 if (typeof window !== 'undefined') {
@@ -349,6 +354,19 @@ export function playFinalVictorySfx() {
   playAudio(FINAL_VICTORY_SFX_SRC, { volume: 0.9 })
 }
 
+function playRoundRestartVoice() {
+  const src =
+    ROUND_RESTART_VOICES[
+      Math.floor(Math.random() * ROUND_RESTART_VOICES.length)
+    ]
+  playAudio(src, { volume: 0.9 })
+}
+
+function advanceRound() {
+  state.roundIndex += 1
+  playRoundRestartVoice()
+}
+
 export function continueForging() {
   playAudio(CONTINUE_FORGING_SFX_SRC, { volume: 0.85 })
   resetForge()
@@ -581,7 +599,7 @@ export function endCharge() {
     if (newProgress > prevProgress) {
       triggerOrbCollectBurst({ x: state.aimX, y: state.aimY })
     }
-    state.roundIndex += 1
+    advanceRound()
     return
   }
 
@@ -593,7 +611,7 @@ export function endCharge() {
       triggerOrbCollectBurst({ x: state.aimX, y: state.aimY })
     }
     state.roundOrbHits = []
-    state.roundIndex += 1
+    advanceRound()
     return
   }
 
@@ -635,7 +653,7 @@ export function completeOrbTally() {
     return
   }
 
-  state.roundIndex += 1
+  advanceRound()
 }
 
 export function resetForge() {

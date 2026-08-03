@@ -135,6 +135,17 @@
   color: #fff8eb;
 }
 
+.victory-after-source {
+  max-width: 42ch;
+  margin: 0;
+  font-family: 'Antic Slab', serif;
+  font-size: clamp(0.82rem, 2.8vw, 0.98rem);
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  opacity: 0.72;
+  color: rgba(240, 220, 190, 0.95);
+}
+
 .victory-panel button {
   margin-top: 12px;
   font-family: 'GodOfWar', sans-serif;
@@ -190,6 +201,11 @@
     max-width: 32ch;
   }
 
+  .victory-after-source {
+    font-size: clamp(0.78rem, 3.4vw, 0.9rem);
+    max-width: 36ch;
+  }
+
   .victory-button--final {
     width: min(100%, 280px);
     justify-content: center;
@@ -207,6 +223,11 @@
 
   .victory-tagline--final {
     font-size: 0.85rem;
+    line-height: 1.35;
+  }
+
+  .victory-after-source {
+    font-size: 0.8rem;
     line-height: 1.35;
   }
 

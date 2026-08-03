@@ -27,6 +27,8 @@ const VICTORY_COPY = {
     title: 'YOU ARE THE GOD OF WAR!',
     tagline:
       'You conquered the frost-forge and mastered the Leviathan. Thank you for playing — may your legend echo through the nine realms.',
+    afterSource:
+      'The source is yours to study — yet the forge is not finished. Keep striking, and you may earn an audience with the mage who shaped this realm.',
     buttonLabel: 'CONTINUE FORGING',
   },
   4: {
@@ -120,16 +122,21 @@ export default function VictoryScreen() {
           {copy.tagline}
         </p>
         {isPublicFinale && (
-          <a
-            className='victory-source-link'
-            href='https://github.com/ektogamat/god-of-war-minigame'
-            target='_blank'
-            rel='noopener noreferrer'
-            onMouseEnter={playButtonHoverSfx}
-            onClick={playButtonHoverSfx}
-          >
-            View source code
-          </a>
+          <>
+            <a
+              className='victory-source-link'
+              href='https://github.com/ektogamat/god-of-war-minigame'
+              target='_blank'
+              rel='noopener noreferrer'
+              onMouseEnter={playButtonHoverSfx}
+              onClick={playButtonHoverSfx}
+            >
+              View source code
+            </a>
+            {copy.afterSource && (
+              <p className='victory-after-source'>{copy.afterSource}</p>
+            )}
+          </>
         )}
         {isUltimatumFinale && (
           <a

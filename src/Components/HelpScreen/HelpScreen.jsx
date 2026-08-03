@@ -10,6 +10,7 @@ const RULES = [
   'Reach 100% in 3 solid rounds to forge each weapon',
   'Flawless strikes need a long hit streak and a full bar',
   'Complete all three weapons to finish the trial',
+  'Pray Konami God — he may still be listening',
 ]
 
 const WEAPONS = [
